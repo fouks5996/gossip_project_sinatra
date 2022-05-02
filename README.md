@@ -3,9 +3,7 @@
 
 # 👋🏻 The Gossip Project
 
----
-
-### Bienvenue dans le gossip project.
+### Bienvenue dans The Gossip Project !
 
 Ici, tu pourras :
 
