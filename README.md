@@ -5,7 +5,8 @@
 
 ---
 
-Bienvenue dans le gossip project.
+### Bienvenue dans le gossip project.
+
 Ici, tu pourras :
 
 - 👀 Voir tous les gossips
