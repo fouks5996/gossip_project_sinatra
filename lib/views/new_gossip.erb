@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Créer un potin</title>
+  </head>
+  <style>
+  body{
+    font-family:verdana;
+    background-color: #1E1E1E;
+    color: white;
+    display:flex;
+    height:90vh;
+    justify-content: space-evenly;
+    flex-direction:column;
+    align-items:center;
+    position: relative;
+  }
+  a{
+    text-decoration:none;
+    color: white;
+  }
+
+
+  .little{
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    margin-top: 20px;
+  }
+
+  p{
+    margin:0;
+    white-space: nowrap;
+  }
+
+  .potin{
+    display:flex;
+    flex-direction:column;
+    width:500px;
+    margin-right: 40px;
+    padding: 35px 30px;
+    background-color:#292A2D;
+    border-radius: 10px;
+    align-items: flex-start;
+  }
+
+  h1{
+    font-size: 70px;
+    text-align:center;
+    margin:0px;
+    max-width: 80%;
+  }
+
+  .abs{
+     position: absolute;
+     top:30px;
+     left:30px
+  }
+
+  form{
+     display:flex;
+     flex-direction: column;
+
+  }
+
+  input{
+     padding:10px;
+     width: 350px;
+     border-radius: 10px;
+     margin-top: 5px;
+     margin-bottom: 15px;
+  }
+
+  input:nth-child(3){
+     height:100px;
+  }
+
+  input[type=submit] {
+     border: none;
+     width:40%;
+  }
+   
+  .big{
+    background-color: #3B007C;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+
+  }
+   </style>
+  <body>
+  <a class='little abs' href="/" >Accueil</a>
+    <h1>Crée un potin !</h1>
+    <form action='/gossips/new/' method='POST'>
+      Saisis ton nom :  <input type='text' name='gossip_author'/><br/>
+      Balance ton potin : <input type='text' name='gossip_content'/><br/>
+      <input class='big' type='submit'/>
+    </form>
+  </body>
+</html>

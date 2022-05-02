@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <style>
+  body{
+    font-family:verdana;
+    background-color: #1E1E1E;
+    color: white;
+    display:flex;
+    height:90vh;
+    justify-content: space-evenly;
+    flex-direction:column;
+    align-items:center;
+  }
+  a{
+    text-decoration:none;
+    color: white;
+  }
+
+  .big{
+    background-color: #3B007C;
+    padding: 20px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .little{
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+        background-color: black;
+  }
+
+  p{
+    margin:0;
+  }
+
+  .potins{    
+    display:flex;
+    flex-direction:row;
+    width:95%; 
+    overflow-x: scroll;
+  }
+
+  .potin{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    width:250px;
+    min-width: 250px;
+    margin-right: 20px;
+    padding: 35px 30px;
+    background-color:#292A2D;
+    border-radius: 10px;
+  }
+
+  h1{
+    font-size: 70px;
+    text-align:center;
+    margin:0px;
+    max-width: 80%;
+  }
+
+  h4{
+    margin:0px
+  }
+
+
+  .link{
+    display:flex;
+    flex-direction:row;
+    margin-top:20px;
+    white-space: nowrap;
+  }
+   
+   </style>
+   <body>
+    <h1>Mon super site de gossips, Amusez vous bien !</h1>
+    <a class='big' href="/gossips/new/">Clique ici pour créer un potin !</a> <br>
+      <h4 style='text-align:left' > Voici mes potins (slide) </h4>
+      <div class="potins">
+        <% gossips.each_with_index do |gossip| %>
+          <div class='potin'  >
+            <p> Auteur : <%= gossip.author %><br/></p>
+            <p style='font-style: italic; font-size:14px; margin-top:10px; margin-left:5px' > <%= gossip.content %><br/> </p>
+            <div class='link'>
+              <a class='little' style='margin-right:10px' href="/gossips/<%= gossips.index(gossip) + 1%>/">Détails</a>
+              <a class='little'  style='margin-right:10px' href="/gossips/<%= gossips.index(gossip) + 1%>/edit/">Editer </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </body>
+</html>

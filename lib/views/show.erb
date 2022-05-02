@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Potin <%= params['id'] %> </title>
+  </head>
+  <style>
+  body{
+    font-family:verdana;
+    background-color: #1E1E1E;
+    color: white;
+    display:flex;
+    height:90vh;
+    justify-content: space-evenly;
+    flex-direction:column;
+    align-items:center;
+    position: relative;
+  }
+  a{
+    text-decoration:none;
+    color: white;
+  }
+
+
+  .little{
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    margin-top: 20px;
+  }
+
+  p{
+    margin:0;
+    white-space: nowrap;
+  }
+
+  .potin{
+    display:flex;
+    flex-direction:column;
+    width:500px;
+    margin-right: 40px;
+    padding: 35px 30px;
+    background-color:#292A2D;
+    border-radius: 10px;
+    align-items: flex-start;
+  }
+
+  h1{
+    font-size: 70px;
+    text-align:center;
+    margin:0px;
+    max-width: 80%;
+  }
+
+  .abs{
+     position: absolute;
+     top:30px;
+     left:30px
+  }
+   
+   </style>
+  <body>
+    <a class='little abs' href="/" >Accueil</a>
+    <h1>Voici le potin n°<%= params['id'] %></h1>
+    <div class='potin' >
+      <p>Auteur : <%= gossip.author %></p>
+      <p style='font-style: italic; font-size:14px; margin-top:10px; margin-left:5px' > <%= gossip.content %></p>
+      <a class='little' href="/gossips/<%= params['id']%>/edit/">Editer</a>
+    </div>
+  </body>
+</html>
