@@ -3,101 +3,119 @@
     <title>Editer un potin</title>
   </head>
     <style>
-  body{
-    font-family:verdana;
-    background: linear-gradient(246.92deg, #20123C 0.92%, #1F1C25 60.06%, #1E1E1E 96.77%);
-    color: white;
-    display:flex;
-    height:90vh;
-    justify-content: space-evenly;
-    flex-direction:column;
-    align-items:center;
-    position: relative;
-  }
-  a{
-    text-decoration:none;
-    color: white;
-  }
+      body{
+        font-family:verdana;
+        background: linear-gradient(246.92deg, #20123C 0.92%, #1F1C25 60.06%, #1E1E1E 96.77%);
+        color: white;
+        display:flex;
+        height:90vh;
+        justify-content: space-evenly;
+        flex-direction:column;
+        align-items:center;
+        position: relative;
+      }
+      a{
+        text-decoration:none;
+        color: white;
+      }
 
 
-  .little{
-    font-size: 14px;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: black;
-    margin-top: 20px;
-  }
+      .little{
+        font-size: 14px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: black;
+        margin-top: 20px;
+      }
 
-  p{
-    margin:0;
-    white-space: nowrap;
-  }
+      p{
+        margin:0;
+        white-space: nowrap;
+      }
 
-  .potin{
-    display:flex;
-    flex-direction:column;
-    width:500px;
-    margin-right: 10px;
-    padding: 35px 30px;
-    background-color:#292A2D;
-    border-radius: 10px;
-    align-items: flex-start;
-  }
+      .potin{
+        display:flex;
+        flex-direction:column;
+        width:500px;
+        margin-right: 10px;
+        padding: 35px 30px;
+        background-color:#292A2D;
+        border-radius: 10px;
+        align-items: flex-start;
+      }
 
-  h1{
-    font-size: 70px;
-    text-align:center;
-    margin:0px;
-    max-width: 80%;
-  }
+      h1{
+        font-size: 70px;
+        text-align:center;
+        margin:0px;
+        max-width: 80%;
+      }
 
-  .abs{
-     position: absolute;
-     top:30px;
-     left:30px
-  }
+      .abs{
+        position: absolute;
+        top:30px;
+        left:30px
+      }
 
-  form{
-     display:flex;
-     flex-direction: column;
+      form{
+        display:flex;
+        flex-direction: column;
 
-  }
+      }
 
-  input{
-     padding:10px;
-     width: 350px;
-     border-radius: 10px;
-     margin-top: 5px;
-     margin-bottom: 15px;
-  }
+      input{
+        padding:10px;
+        width: 350px;
+        border-radius: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+      }
 
-  input:nth-child(3){
-     height:100px;
-  }
+      input:nth-child(3){
+        height:100px;
+      }
 
-  input[type=submit] {
-     text-decoration: none;
-     border: none;
-     width:40%;
-  }
-   
-  .big{
-    background-color: #3B007C;
-    color: white;
-    padding: 20px 30px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 500;
+    input[type=submit] {
+      border: none;
+      width:40%;
+      background-color: #3B007C;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top:50px
+    }
 
-  }
+    input[type=radio] {
+      width:30px;
+      margin:10px 10px
+    }
+
+    .flex{
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center;
+      width: 110px
+    }
   </style>
   <body>
       <a class='little abs' href="/" >Accueil</a>
     <h1>Editer le potin n°<%= params['id']%></h1>
     <form action='/gossips/<%= params['id']%>/edit/'  method='POST'>
-      Saisis ton nom : <input type='text' name='gossip_author'/><br/>
+      Saisis ton nom : <input type='text' name='gossip_author' value='<%=gossip.author%>'/><br/>
       Modifie ton potin : <input type='text' name='gossip_content'/><br/>
-      <input class='big' type='submit'/>
+      <div style="display:flex; justify-content:space-between; align-items:center; width:300px  " >
+        <div>
+          <div class="flex" > <span> Concis </span><input name='gossip_tag' value='Concis' type="radio"> </div>
+          <div class="flex" > <span>Clair</span><input name='gossip_tag' value='Clair' type="radio"></div>
+        </div>
+        <div>
+          <div class="flex" > <span>Intense</span> <input name='gossip_tag' value='Intense' type="radio"></div>
+          <div class="flex" > <span>Court </span><input name='gossip_tag' value='Court' type="radio"></div>
+        </div>
+      </div>
+      <input class='big' type='submit' value='Submit'/>
     </form>
   </body>
 </html>

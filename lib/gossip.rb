@@ -1,15 +1,16 @@
 class Gossip
-   attr_accessor :author, :content, :all_gossips
+   attr_accessor :author, :content, :all_gossips, :tag
 
-   def initialize(author, content)
+   def initialize(author, content, tag)
       @author = author
       @content = content
+      @tag = tag
    end
 
    # sauvegarde des potins dans le fichier CSV
    def save
       CSV.open("./db/gossip.csv", "ab") do |csv|
-         csv << [@author, @content]
+         csv << [@author, @content, @tag]
        end
    end
 
@@ -17,7 +18,7 @@ class Gossip
    def self.all
       all_gossips = []
       CSV.read("./db/gossip.csv").each do |ligne|
-         all_gossips << Gossip.new(ligne[0], ligne[1])
+         all_gossips << Gossip.new(ligne[0], ligne[1], ligne[2])
       end
       return all_gossips
    end
@@ -31,10 +32,11 @@ class Gossip
    end
 
    # Modification, en fonction de l'index, de l'auteur et du contenu
-    def self.update(id, new_author, new_content)
+    def self.update(id, new_author, new_content, new_tag)
       gossips = CSV.read("./db/gossip.csv")
       gossips[id - 1][0] = new_author
       gossips[id - 1][1] = new_content
+      gossips[id - 1][2] = new_tag
       CSV.open("./db/gossip.csv", "w+") do |csv|
         gossips.each do |gossip|
           csv << gossip

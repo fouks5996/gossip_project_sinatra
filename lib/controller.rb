@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
 
    # formulire en Post pour récuperer les infos du formulaire et les envoie au fichier csv avec Gossip.new.save
    post '/gossips/new/' do
-      Gossip.new(params["gossip_author"], params["gossip_content"]).save  
+      Gossip.new(params["gossip_author"], params["gossip_content"], params["gossip_tag"]).save  
       redirect '/'
    end
 
@@ -25,15 +25,14 @@ class ApplicationController < Sinatra::Base
 
    # Création de la route edit en fonction de l'ID 
    get '/gossips/:id/edit/' do
-      erb :edit
+      erb :edit, locals: {id: params['id'], gossip: Gossip.find(params['id'])}
       end
 
    # formulire en Post pour récuperer les infos du formulaire qui les envoie au fichier csv
    post '/gossips/:id/edit/' do
-      Gossip.update(params['id'].to_i, params["gossip_author"], params["gossip_content"])
+      Gossip.update(params['id'].to_i, params["gossip_author"], params["gossip_content"], params["gossip_tag"])
       redirect '/'
    end
-
 end
 
 #shotgun -p 4567
